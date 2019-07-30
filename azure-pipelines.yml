@@ -8,8 +8,13 @@ resources:
 stages:
   - stage: Build
     jobs:
-     - job: BuildJob
-       pool: 
-        name: Default
-       steps:
-         - downloadBuild: javaAppBuild
+     - deployment: Deploy
+       displayName: Some name
+       pool:
+        name: default
+       strategy:
+        runOnce:
+          deploy:
+            steps:
+              - powershell: |
+                  ls $(Pipeline.Workspace)/
