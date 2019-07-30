@@ -10,6 +10,7 @@ stages:
     jobs:
      - deployment: Deploy
        displayName: Some name
+       environment: Environment01
        pool:
         name: default
        strategy:
