@@ -1,0 +1,15 @@
+resources:
+ builds:
+   - build: javaAppBuild
+     type: Jenkins
+     connection: Spaceworkz
+     source: UBSTest
+
+stages:
+  - stage: Build
+    jobs:
+     - job: BuildJob
+       pool: 
+        name: Default
+       steps:
+         - downloadBuild: javaAppBuild
